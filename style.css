@@ -194,6 +194,22 @@ nav ul li:hover>a{
     border-radius: 15px;
     box-shadow: 5px 10px 25px gray;
 }
+
+/* JAvascript Assignment  */
+
+
+.container .card .box .imgagecardJS1 {
+    width: 90%;
+    height: 50%;
+    background-image: url(./images/digital\ clock.JPG);
+    background-position: center;
+    background-size: cover;
+    border-radius: 15px;
+    box-shadow: 5px 10px 25px gray;
+}
+
+
+
 @media only screen and (max-width:320px) {
     #btn {
         margin-left: 0px;

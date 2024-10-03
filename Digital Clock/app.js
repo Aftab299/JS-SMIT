@@ -7,9 +7,9 @@ let periodSp = document.getElementById('period');
 
 let mydate=new Date();
 
-console.log(mydate.toLocaleDateString());
-console.log(mydate.toLocaleTimeString());
-console.log(mydate.toISOString());
+// console.log(mydate.toLocaleDateString());
+// console.log(mydate.toLocaleTimeString());
+// console.log(mydate.toISOString());
 
 
 let dateset=document.getElementById("dateget");
