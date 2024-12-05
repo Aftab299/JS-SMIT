@@ -22,8 +22,17 @@ body h1{
     color: white;
     font-size: 35px;
     letter-spacing: 3px;
+    text-align: center;
     border-bottom: 3px solid red;
     text-align: center;
+}
+#Javacript{
+    color: white;
+    font-size: 35px;
+    letter-spacing: 3px;
+    text-align: center;
+    /* border: 3px solid red;u */
+    /* text-decoration: underline; */
 }
 nav{
     width: 100%;
