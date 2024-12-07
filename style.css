@@ -217,6 +217,19 @@ nav ul li:hover>a{
     border-radius: 15px;
     box-shadow: 5px 10px 25px gray;
 }
+<<<<<<< HEAD
+=======
+/* Card Javacript 2 */
+.container .card .box .imgagecardJS2 {
+    width: 90%;
+    height: 50%;
+    background-image: url(./images/search\ Data.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 15px;
+    box-shadow: 5px 10px 25px gray;
+}
+>>>>>>> e99f8332adf71046e0e6fe8fbdf82fc2fc9b6b70
 
 
 
