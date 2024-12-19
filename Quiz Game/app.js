@@ -81,65 +81,92 @@ let Question = [{
 ];
 
 
-let queInp = document.getElementById("queBox");
-let optionInp = document.querySelectorAll('.option');
+
+
+let score = 0;
 let total = Question.length;
-let right = 0;
-let wrong = 0;
-
 let index = 0;
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+const nextButton = document.getElementById('next-btn');
 
-let loadquestion = () => {
-    if (index === total) {
-        return endQuiz();
-    }
 
-    const data = Question[index];
-    queInp.innerText = `${index + 1}) ${data.ques}`;
-    optionInp[0].nextElementSibling.innerText = data.a;
-    optionInp[1].nextElementSibling.innerText = data.b;
-    optionInp[2].nextElementSibling.innerText = data.c;
-    optionInp[3].nextElementSibling.innerText = data.d;
+nextButton.disabled = true;
 
-    reset();
-};
 
-let submitQuiz = () => {
-    const data = Question[index];
-    let ans = getAns();
-    if (ans === data.correct) {
-        right++;
-    } else {
-        wrong++;
-    }
+let loadQuestion = () => {
+    questionElement.innerText = "";
+    const question = Question[index];
+    questionElement.innerText = `${index + 1} ) ${question.ques}`;
+    console.log(questionElement.innerText);
 
-    index++;
-    loadquestion();
-};
 
-let getAns = () => {
-    let answer;
-    optionInp.forEach((input) => {
-        if (input.checked) {
-            answer = input.value;
+    for (let key in question) {
+        if (key !== "ques" && key !== "correct") {
+
+            let optionInput = document.createElement("input");
+            optionInput.type = "radio";
+            optionInput.name = "option",
+                optionInput.value = key;
+
+            optionInput.addEventListener("change", () => {
+                nextButton.disabled = false;
+            });
+
+
+            let Label = document.createElement("label");
+            Label.innerText = question[key];
+
+
+            let optionShow = document.createElement("div");
+            optionShow.className = "OptionDisplay";
+            optionShow.style.textAlign = "left";
+            // optionShow.style.backgroundColor="red";
+            optionShow.style.marginTop = "10px";
+
+            optionShow.appendChild(optionInput);
+            optionShow.appendChild(Label);
+            optionsElement.appendChild(optionShow);
+
+
         }
-    });
-    return answer;
+
+    }
+    nextButton.disabled=true;
+};
+loadQuestion();
+
+let checkAnswer = () => {
+    let selectOption = document.querySelector(`input[name="option"]:checked`); // Use the correct name attribute
+    if (selectOption) {
+        const UserAns = selectOption.value;
+        const correctAns = Question[index].correct;
+
+        if (UserAns === correctAns) {
+            score++;
+            // alert("Right Answer");
+
+        } else {
+            alert("wrong Answer");
+        }
+    } else {
+        alert("Select the OPtion")
+    }
+};
+let moveNext = () => {
+    checkAnswer();
+    index++;
+    optionsElement.innerText = "";
+
+    if (index === total) {
+
+        questionElement.innerText = `Your score: ${score} / ${total}`;
+        nextButton.style.display = "none";
+        alert("Game over! Your final score is: " + score + " out of " + total);
+        return;
+    }
+
+    loadQuestion();
 };
 
-const reset = () => {
-    optionInp.forEach((input) => {
-        input.checked = false;
-    });
-};
-
-let endQuiz = () => {
-    let box = document.querySelector('.box'); 
-    box.innerHTML = `
-        <h2>Thanks for Playing</h2>
-        <p>${right} / ${total} are correct</p>
-    `;
-};
-
-
-loadquestion();
+let

@@ -1,15 +1,82 @@
 body {
-    background-color: aqua;
+    font-family: Arial, sans-serif;
+    text-align: center;
     display: flex;
-    justify-content: center; /* Horizontal centering */
-    align-items: center;    /* Vertical centering */
-    height: 100vh;          /* Ensure the body fills the viewport */
-    margin: 0;              /* Remove default margin */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
 }
-.box{
-    border: 1px solid black;
-    padding: 10px;
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
-.row >label,input{
-    font-size: 2rem;
+
+.question-box {
+    margin: 20px auto;
+    width: 60%;
+    padding: 30px;
+    border: 2px solid #ff4a57;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
 }
+
+.question-box:hover {
+    transform: scale(1.03);
+}
+
+.options {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.options div {
+    margin: 15px 0;
+}
+
+.options input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.options label {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 15px;
+    width: 60%;
+    font-size: 18px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff4a57, #ff847c);
+    color: white;
+    border: none;
+    border-radius: 70px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff6e7f, #ff4a57);
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
