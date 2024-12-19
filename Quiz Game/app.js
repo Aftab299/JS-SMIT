@@ -14,70 +14,70 @@ let Question = [{
         'd': 'Lionel Messi',
         'correct': 'c',
     },
-    {
-        'ques': 'Which is the largest planet in our Solar System?',
-        'a': 'Earth',
-        'b': 'Mars',
-        'c': 'Jupiter',
-        'd': 'Saturn',
-        'correct': 'c',
-    },
-    {
-        'ques': 'Which country is known as the Land of the Rising Sun?',
-        'a': 'China',
-        'b': 'Japan',
-        'c': 'Thailand',
-        'd': 'South Korea',
-        'correct': 'b',
-    },
-    {
-        'ques': 'What is the chemical symbol for Gold?',
-        'a': 'Go',
-        'b': 'Au',
-        'c': 'Ag',
-        'd': 'Pt',
-        'correct': 'b',
-    },
-    {
-        'ques': 'Who wrote the play "Hamlet"?',
-        'a': 'Charles Dickens',
-        'b': 'William Shakespeare',
-        'c': 'Mark Twain',
-        'd': 'George Orwell',
-        'correct': 'b',
-    },
-    {
-        'ques': 'Which year did the Titanic sink?',
-        'a': '1905',
-        'b': '1912',
-        'c': '1918',
-        'd': '1923',
-        'correct': 'b',
-    },
-    {
-        'ques': 'What is the capital of Australia?',
-        'a': 'Sydney',
-        'b': 'Melbourne',
-        'c': 'Canberra',
-        'd': 'Brisbane',
-        'correct': 'c',
-    },
-    {
-        'ques': 'Which is the longest river in the world?',
-        'a': 'Amazon',
-        'b': 'Nile',
-        'c': 'Yangtze',
-        'd': 'Mississippi',
-        'correct': 'b',
-    },
-    {
-        'ques': 'Who discovered penicillin?',
-        'a': 'Marie Curie',
-        'b': 'Alexander Fleming',
-        'c': 'Louis Pasteur',
-        'd': 'Gregor Mendel',
-        'correct': 'b',
-    }
+    // {
+    //     'ques': 'Which is the largest planet in our Solar System?',
+    //     'a': 'Earth',
+    //     'b': 'Mars',
+    //     'c': 'Jupiter',
+    //     'd': 'Saturn',
+    //     'correct': 'c',
+    // },
+    // {
+    //     'ques': 'Which country is known as the Land of the Rising Sun?',
+    //     'a': 'China',
+    //     'b': 'Japan',
+    //     'c': 'Thailand',
+    //     'd': 'South Korea',
+    //     'correct': 'b',
+    // },
+    // {
+    //     'ques': 'What is the chemical symbol for Gold?',
+    //     'a': 'Go',
+    //     'b': 'Au',
+    //     'c': 'Ag',
+    //     'd': 'Pt',
+    //     'correct': 'b',
+    // },
+    // {
+    //     'ques': 'Who wrote the play "Hamlet"?',
+    //     'a': 'Charles Dickens',
+    //     'b': 'William Shakespeare',
+    //     'c': 'Mark Twain',
+    //     'd': 'George Orwell',
+    //     'correct': 'b',
+    // },
+    // {
+    //     'ques': 'Which year did the Titanic sink?',
+    //     'a': '1905',
+    //     'b': '1912',
+    //     'c': '1918',
+    //     'd': '1923',
+    //     'correct': 'b',
+    // },
+    // {
+    //     'ques': 'What is the capital of Australia?',
+    //     'a': 'Sydney',
+    //     'b': 'Melbourne',
+    //     'c': 'Canberra',
+    //     'd': 'Brisbane',
+    //     'correct': 'c',
+    // },
+    // {
+    //     'ques': 'Which is the longest river in the world?',
+    //     'a': 'Amazon',
+    //     'b': 'Nile',
+    //     'c': 'Yangtze',
+    //     'd': 'Mississippi',
+    //     'correct': 'b',
+    // },
+    // {
+    //     'ques': 'Who discovered penicillin?',
+    //     'a': 'Marie Curie',
+    //     'b': 'Alexander Fleming',
+    //     'c': 'Louis Pasteur',
+    //     'd': 'Gregor Mendel',
+    //     'correct': 'b',
+    // }
 ];
 
 
@@ -89,6 +89,7 @@ let index = 0;
 const questionElement = document.getElementById('question');
 const optionsElement = document.getElementById('options');
 const nextButton = document.getElementById('next-btn');
+let mainDiv=document.getElementsByClassName('question-box');
 
 
 nextButton.disabled = true;
@@ -147,7 +148,7 @@ let checkAnswer = () => {
             // alert("Right Answer");
 
         } else {
-            alert("wrong Answer");
+            
         }
     } else {
         alert("Select the OPtion")
@@ -157,12 +158,14 @@ let moveNext = () => {
     checkAnswer();
     index++;
     optionsElement.innerText = "";
-
+   
     if (index === total) {
-
-        questionElement.innerText = `Your score: ${score} / ${total}`;
+        
+        
+        questionElement.innerHTML = `
+        <h1>Game Over</h1>
+        <h2> Your score: ${score} / ${total} <h2>`;
         nextButton.style.display = "none";
-        alert("Game over! Your final score is: " + score + " out of " + total);
         return;
     }
 

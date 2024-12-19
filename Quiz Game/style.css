@@ -36,10 +36,12 @@ body {
 .options {
     margin: 20px 0;
     text-align: left;
+
 }
 
 .options div {
     margin: 15px 0;
+    /* color: #ff6e7f; */
 }
 
 .options input[type="radio"] {
